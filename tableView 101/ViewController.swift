@@ -8,16 +8,31 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    let amlakItems = [" شهر: استانبول \n تعداد اتاق: ۲ اتاق + سالن و آشپزخانه \n وضعیت: اجاره ای \n قیمت: ۲۵۰۰ لیر"," شهر: استانبول \n تعداد اتاق: ۲ اتاق + سالن و آشپزخانه \n وضعیت: اجاره ای \n قیمت: ۲۵۰۰ لیر"," شهر: استانبول \n تعداد اتاق: ۲ اتاق + سالن و آشپزخانه \n وضعیت: اجاره ای \n قیمت: ۲۵۰۰ لیر"," شهر: استانبول \n تعداد اتاق: ۲ اتاق + سالن و آشپزخانه \n وضعیت: اجاره ای \n قیمت: ۲۵۰۰ لیر"," شهر: استانبول \n تعداد اتاق: ۲ اتاق + سالن و آشپزخانه \n وضعیت: اجاره ای \n قیمت: ۲۵۰۰ لیر"," شهر: استانبول \n تعداد اتاق: ۲ اتاق + سالن و آشپزخانه \n وضعیت: اجاره ای \n قیمت: ۲۵۰۰ لیر"]
+    
+    let amlakImage = ["villaone.jpg","villatwo.jpg", "villaone.jpg", "villaone.jpg","villatwo.jpg", "villaone.jpg"]
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return amlakItems.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! viewControllerTableViewCell
+        
+        cell.myImage.image = UIImage(named: (amlakImage[indexPath.row]+".jpg"))
+        cell.myLable.text = amlakItems[indexPath.row]
+        
+        return (cell)
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
+        
+        self.title =  " لیست"
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
 
