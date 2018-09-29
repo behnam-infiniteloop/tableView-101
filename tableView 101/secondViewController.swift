@@ -49,9 +49,5 @@ class secondViewController: UIViewController {
         }
         
 }
-}
-
-extension ViewController : UITextViewDelegate {
-    
     
 }
